@@ -3,18 +3,18 @@
 This project verifies the implementation of following modules:
 
 * [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor) 
-* [template-terraform-gitops] (https://github.com/cloud-native-toolkit/template-terraform-gitops)
+* [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
 
 # Understanding the modules
 
-## [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
+## 1. [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
 
 ### TBD
 
 
-## [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor)
+## 2. [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor)
 
-### Tools used by the module
+### a. Tools used by the module
 
   * [IBM Cloud Garage CLI](https://github.com/cloud-native-toolkit/ibm-garage-cloud-cli)
     * That tool support CI/CD in a Kubernetes environment using Tekton and Argo CD projects configured with helm. ([Example blog post](https://suedbroecker.net/2021/03/24/start-with-cicd-using-the-cloud-native-toolkit/)) 
@@ -74,18 +74,18 @@ Options:
       --debug                  Turn on debug logging                   [boolean]
 ```
 
-### Verify the input for the swagger-editor module?
+### b. Verify the input for the swagger-editor module?
 
   * OpenShift
   * VPC
   * Argo CD configuation
 
-### Can the swagger-editor module be instantiated reusing the existing environment/infrasture already created?
+### c. Can the swagger-editor module be instantiated reusing the existing environment/infrasture already created?
 
   * If yes, what are the needed entries in a BOM?
   * If no, what are the needed entries in a BOM?
 
-### How is the implementation of the swagger-editor module organized?
+### d. How is the implementation of the swagger-editor module organized?
 
   * Which input does it has?
     * Parameters?
@@ -93,6 +93,6 @@ Options:
   * Which automation (bash scripts) does it use and what is realized in that automations?
   * Do we need to know some on special terraform functionaly used?
 
-## Setup the module on a OpenShift cluster
+### f. Setup the module on a OpenShift cluster
 
-### Step 1: XXX
+#### Step 1: XXX
