@@ -6,7 +6,7 @@ The objective is to understand how to build new modules for the [`Technology Zon
 
 # What does the project does?
 
-It this project we inspect the implementation of following module:
+In this project we inspect the implementation of following module:
 
 * [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor) 
 
