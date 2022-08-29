@@ -4,7 +4,7 @@
 
 The objective is to understand how to build new modules for the [`Technology Zone Accelerator Toolkit`](https://modules.cloudnativetoolkit.dev/).
 
-# What does the project does?
+# What does the project do?
 
 In this project we inspect the implementation of following module:
 
