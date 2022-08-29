@@ -6,50 +6,62 @@ This project verifies the swagger-editor-example implementation(https://github.c
 ## Tools used by the module
 
   * [IBM Cloud Garage CLI](https://github.com/cloud-native-toolkit/ibm-garage-cloud-cli)
-    * That tool support CI/CD in a Kubernetes environment using Tekton and Argo CD projects configured with helm. ([Example blog post](https://suedbroecker.net/2021/03/24/start-with-cicd-using-the-cloud-native-toolkit/)) The following list contains possible commands.
+    * That tool support CI/CD in a Kubernetes environment using Tekton and Argo CD projects configured with helm. ([Example blog post](https://suedbroecker.net/2021/03/24/start-with-cicd-using-the-cloud-native-toolkit/)) 
 
-    ```sh
-    ...
-    Commands:
-  igc console                               Launch the IKS or OpenShift admin
-                                            console
-  igc create-webhook                        Create a git webhook for a given
-                                            Jenkins pipeline
-  igc credentials                           Lists the urls and credentials for
-                                            the tools deployed to the cluster
-  igc dashboard                             Open the Developer Dashboard in the
-                                            default browser
-  igc enable                                Enable the current repository with
-                                            pipeline logic
-  igc endpoints                             List the current ingress hosts for
-                                            deployed apps in a namespace
-                                         [aliases: ingress, endpoint, ingresses]
-  igc git-secret [name]                     Create a kubernetes secret that
-                                            contains the url, username, and
-                                            personal access token for a git repo
-  igc git [remote]                          Launches a browser to the git repo
-                                            url specified by the remote. If not
-                                            provided remote defaults to origin
-  igc gitops-module [name] [contentDir]     Populates the gitops repo with the
-                                            provided module contents and
-                                            configures the ArgoCD application
-  igc gitops-namespace [name] [contentDir]  Populates the gitops repo with the
-                                            configuration for a namespace
-  igc gitops [gitUrl]                       Registers the git repository in the
-                                            kubernetes cluster as the gitops
-                                            repository for the given namespace
-  igc install-plugins                       Install igc commands as plugins to
-                                            the kubectl and oc clis
-    ...
-    ```
-
-    The relevant command for us is `gitops-module`:
+The relevant command from `IBM Cloud Garage CLI` for us is the `gitops-module`:
     
-    ```sh
-    igc gitops-module [name] [contentDir]     Populates the gitops repo with the
-                                            provided module contents and
-                                            configures the ArgoCD application
-    ```
+```sh
+igc gitops-module [name] [contentDir]
+
+Populates the gitops repo with the provided module contents and configures the
+ArgoCD application
+
+Positionals:
+  name  The name of the module that will be added to GitOps             [string]
+
+Options:
+      --version                Show version number                     [boolean]
+      --help                   Show help                               [boolean]
+  -c, --contentDir             The directory where the payload content has been
+                               placed. If not provided defaults to current
+                               working directory.                       [string]
+  -n, --namespace              Namespace where the secret should be created
+                                                             [string] [required]
+  -l, --layer                  The gitops layer where the configuration will be
+                               deployed (infrastructure, services, applications)
+                         [choices: "infrastructure", "services", "applications"]
+      --gitopsConfigFile       Name of yaml or json file that contains the
+                               gitops config values                     [string]
+      --bootstrapRepoUrl       Url of the bootstrap repo that contains the
+                               gitops config yaml                       [string]
+      --gitopsCredentialsFile  Name of yaml or json file that contains the
+                               gitops credentials                       [string]
+      --token                  Git personal access token to access gitops repo
+                                                                        [string]
+      --applicationPath        The path within the payload directory structure
+                               where the payload config should be placed. If not
+                               provided will default to `name`          [string]
+      --branch                 The branch where the payload has been deployed
+      --type                   The type of component added to the GitOps repo.
+                   [choices: "base", "operators", "instances"] [default: "base"]
+      --serverName             The name of the cluster. If not provided will use
+                               `default`
+      --valueFiles             Comma-separated list of value files that should
+                               be applied to the Argo CD application if using a
+                               helm chart
+      --lock                   Git repo locking style
+       [choices: "optimistic", "pessimistic", "branch", "o", "p", "b"] [default:
+                                                                       "branch"]
+      --autoMerge              Flag indicating that the branch/PR should be
+                               automatically merged. Only applies if lock
+                               strategy is branch      [boolean] [default: true]
+      --rateLimit              Flag indicating that the calls to the git api
+                               should be rate limited.[boolean] [default: false]
+      --tmpDir                 The temp directory where the gitops repo should
+                               be checked out
+                                        [string] [default: "/tmp/gitops-module"]
+      --debug                  Turn on debug logging                   [boolean]
+```
 
 ## Verify the input for the swagger-editor module?
 
