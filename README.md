@@ -8,13 +8,13 @@ The objective is to understand how to build new modules for the [`Technology Zon
 
 In this project we inspect the implementation of following module:
 
-* [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor) 
+* [terraform-gitops-swagger-editor](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor) 
 
 > The current project is related to the inspection of the project [gitops-create-software-everywhere-module](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module).
 
 # Understanding the module
 
-## 1. [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor)
+## 1. [gitops-create-software-everywhere-module](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module)
 
 ### a. Tools used by the module
 
