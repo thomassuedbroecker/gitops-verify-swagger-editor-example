@@ -7,7 +7,7 @@ This project verifies the implementation of following modules:
 
 # Understanding the modules
 
-## [template-terraform-gitops] (https://github.com/cloud-native-toolkit/template-terraform-gitops)
+## [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
 
 ### TBD
 
