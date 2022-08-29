@@ -9,6 +9,8 @@ This project verifies the implementation of following modules:
 
 ## 1. [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
 
+The [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops) is a part of the `How to` instructions of the [`Technology Zone Accelerator Toolkit`](https://modules.cloudnativetoolkit.dev/).
+
 ### TBD
 
 
