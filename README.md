@@ -1,21 +1,20 @@
 # gitops-verify-swagger-editor-example
 
-This project verifies the implementation of following modules:
+# Objective
+
+The objective is to understand how to build new modules for the [`Technology Zone Accelerator Toolkit`](https://modules.cloudnativetoolkit.dev/).
+
+# What does the project does?
+
+It this project we inspect the implementation of following module:
 
 * [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor) 
-* [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
 
-# Understanding the modules
+> The current project is related to the inspection of the project [gitops-create-software-everywhere-module](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module).
 
-## 1. [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops)
+# Understanding the module
 
-The [template-terraform-gitops](https://github.com/cloud-native-toolkit/template-terraform-gitops) is a part of the `How to` instructions of the [`Technology Zone Accelerator Toolkit`](https://modules.cloudnativetoolkit.dev/). 
-The module covers the [GitOps topic](https://modules.cloudnativetoolkit.dev/#/how-to/gitops).
-
-### TBD
-
-
-## 2. [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor)
+## 1. [terraform-tools-swaggereditor](https://github.com/cloud-native-toolkit/terraform-tools-swaggereditor)
 
 ### a. Tools used by the module
 
