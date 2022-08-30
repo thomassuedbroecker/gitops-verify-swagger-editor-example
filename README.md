@@ -180,3 +180,5 @@ spec:
       version: v0.0.1
 ```
 
+#### Step 2: Follow the steps written in [lab 3 operate](https://operate.cloudnativetoolkit.dev/getting-started/lab3/) just with the change BOM
+
