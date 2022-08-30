@@ -71,7 +71,7 @@ if [[ -f "credentials.properties" ]]; then
 fi
 
 echo "Initializing container ${CONTAINER_NAME} from ${DOCKER_IMAGE}"
-${DOCKER_CMD} run -itd --name ${CONTAINER_NAME}    -u "${UID}"    -v "${SRC_DIR}:/terraform"    -v "workspace-${AUTOMATION_BASE}:/workspaces"    ${ENV_FILE}    -w /terraform    ${DOCKER_IMAGE}
+${DOCKER_CMD} run -itd --name ${CONTAINER_NAME}  -v "${SRC_DIR}:/terraform"    -v "workspace-${AUTOMATION_BASE}:/workspaces"    ${ENV_FILE}    -w /terraform    ${DOCKER_IMAGE}
 
 echo "Attaching to running container..."
 ${DOCKER_CMD} attach ${CONTAINER_NAME}
