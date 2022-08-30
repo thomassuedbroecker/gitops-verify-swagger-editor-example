@@ -197,7 +197,7 @@ The helper automation scripts are already configured and available in the curren
 
 Interactive output:
 
-The swagger editor will be deployed to the default namespace.
+The `swagger editor` will be deployed to the default namespace.
 
 ```sh
 Provide a value for 'namespace_name':
