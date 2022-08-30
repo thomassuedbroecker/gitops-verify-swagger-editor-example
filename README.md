@@ -95,6 +95,88 @@ Options:
   * Which automation (bash scripts) does it use and what is realized in that automations?
   * Do we need to know some on special terraform functionaly used?
 
-### f. Setup the module on a OpenShift cluster
+### f. Setup the module on an OpenShift cluster
 
-#### Step 1: XXX
+#### Step 1: Configure a `BOM` for the entire infrastructure and application
+
+```yaml
+apiVersion: cloudnativetoolkit.dev/v1alpha1
+kind: BillOfMaterial
+metadata:
+  name: ibm-vpc-roks-argocd-swagger
+spec:
+  modules:
+    # Virtual Private Cloud - related
+    # - subnets
+    # - gateways
+    - name: ibm-vpc
+      alias: ibm-vpc
+      version: v1.16.0
+      variables:
+      - name: name
+        value: "tsued-gitops-swagger"
+      - name: tags
+        value: ["tsuedro"]
+    - name: ibm-vpc-subnets
+      alias: ibm-vpc-subnets
+      version: v1.13.2
+      variables:
+        - name: _count
+          value: 1
+        - name: name
+          value: "tsued-gitops-swagger"
+        - name: tags
+          value: ["tsuedro"]
+    - name: ibm-vpc-gateways
+    # ROKS - related
+    # - objectstorage
+    - name: ibm-ocp-vpc
+      alias: ibm-ocp-vpc
+      version: v1.15.5
+      variables:
+        - name: name
+          value: "tsued-gitops-swagger"
+        - name: worker_count
+          value: 2
+        - name: tags
+          value: ["tsuedro"]
+    - name: ibm-object-storage
+      alias: ibm-object-storage
+      version: v4.0.3
+      variables:
+        - name: name
+          value: "cos_tsued_swagger"
+        - name: tags
+          value: ["tsuedro"]
+        - name: label
+          value: ["cos_tsued"]
+    # Install OpenShift GitOps and Bootstrap GitOps (aka. ArgoCD) - related
+    # - argocd
+    # - gitops
+    - name: argocd-bootstrap
+      alias: argocd-bootstrap
+      version: v1.12.0
+      variables:
+        - name: repo_token
+    - name: gitops-repo
+      alias: gitops-repo
+      version: v1.20.2
+      variables:
+        - name: host
+          value: "github.com"
+        - name: type
+          value: "GIT"
+        - name: org
+          value: "thomassuedbroecker"
+        - name: username
+          value: "thomassuedbroecker"
+        - name: project
+          value: "iascable-gitops-swagger"
+        - name: repo
+          value: "iascable-gitops-swagger"
+    # Install Swagger editor
+    - name: gitops-swagger-editor
+      alias: gitops-swagger-editor
+      version: v0.0.1
+```
+
