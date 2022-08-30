@@ -99,6 +99,15 @@ Options:
 
 #### Step 1: Configure a `BOM` for the entire infrastructure and application
 
+We will reuse the BOM structure from [lab 3 operate](https://operate.cloudnativetoolkit.dev/getting-started/lab3/) and just add following lines and changing the some variable names to create different instances.
+
+```yaml
+# Install Swagger editor
+    - name: gitops-swagger-editor
+      alias: gitops-swagger-editor
+      version: v0.0.1
+```
+
 ```yaml
 apiVersion: cloudnativetoolkit.dev/v1alpha1
 kind: BillOfMaterial
