@@ -108,6 +108,8 @@ We will reuse the BOM structure from [lab 3 operate](https://operate.cloudnative
       version: v0.0.1
 ```
 
+An example for the new `BOM`:
+
 ```yaml
 apiVersion: cloudnativetoolkit.dev/v1alpha1
 kind: BillOfMaterial
