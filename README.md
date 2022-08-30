@@ -195,3 +195,49 @@ spec:
 
 The helper automation scripts are already configured and available in the current repository.
 
+Interactive output:
+
+The swagger editor will be deployed to the default namespace.
+
+```sh
+Provide a value for 'namespace_name':
+  The value that should be used for the namespace
+> default
+```
+
+```sh
+Provide a value for 'gitops-repo_host':
+  The host for the git repository. The git host used can be a GitHub, GitHub Enterprise, Gitlab, Bitbucket, Gitea or Azure DevOps server. If the host is null assumes in-cluster Gitea instance will be used.
+> (github.com) 
+Provide a value for 'gitops-repo_org':
+  The org/group where the git repository exists/will be provisioned. If the value is left blank then the username org will be used.
+> (thomassuedbroecker) 
+Provide a value for 'gitops-repo_project':
+  The project that will be used for the git repo. (Primarily used for Azure DevOps repos)
+> (iascable-gitops-swagger) 
+Provide a value for 'gitops-repo_username':
+  The username of the user with access to the repository
+> (thomassuedbroecker) 
+Provide a value for 'gitops-repo_token':
+> XXX
+> Provide a value for 'ibmcloud_api_key':
+> XXX
+Provide a value for 'region':
+> eu-de
+Provide a value for 'worker_count':
+  The number of worker nodes that should be provisioned for classic infrastructure
+> (2) 
+Provide a value for 'ibm-ocp-vpc_flavor':
+  The machine type that will be provisioned for classic infrastructure
+> (bx2.4x16) 
+Provide a value for 'ibm-vpc-subnets__count':
+  The number of subnets that should be provisioned
+> (1) 
+Provide a value for 'namespace_name':
+  The value that should be used for the namespace
+> default
+Provide a value for 'resource_group_name':
+  The name of the resource group
+> default
+```
+
