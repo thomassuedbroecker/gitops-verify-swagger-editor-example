@@ -302,6 +302,6 @@ spec:
 
 ![](images/swagger-editor-gitops-03.png)
 
-* Argo CD `app-of-apps` 2-services
+* Argo CD the instance of the `swagger application`
 
 ![](images/swagger-editor-gitops-04.png)
