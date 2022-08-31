@@ -241,3 +241,67 @@ Provide a value for 'resource_group_name':
 > default
 ```
 
+### Step 3: Verify created resources
+
+```sh
+module.argocd-bootstrap.module.openshift_cicd.module.pipelines.data.external.tekton_ready: Reading...
+module.argocd-bootstrap.module.openshift_cicd.module.pipelines.data.external.tekton_ready: Read complete after 1s [id=-]
+╷
+│ Warning: Argument is deprecated
+│ 
+│   with module.argocd-bootstrap.module.bootstrap.random_string.suffix,
+│   on .terraform/modules/argocd-bootstrap.bootstrap/main.tf line 12, in resource "random_string" "suffix":
+│   12:   number  = true
+│ 
+│ Use numeric instead.
+│ 
+│ (and 6 more similar warnings elsewhere)
+╵
+
+Apply complete! Resources: 103 added, 0 changed, 0 destroyed.
+```
+
+* GitHub project
+
+It creates a new github project and did following commits:
+
+![](images/swagger-editor-gitops-01.png)
+
+* Argo CD application configuration
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: default-swaggereditor
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: 2-services
+  source:
+    path: payload/2-services/namespace/default/swaggereditor
+    repoURL: https://github.com/thomassuedbroecker/iascable-gitops-swagger.git
+    targetRevision: main
+    helm:
+      releaseName: swaggereditor
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences: []
+```
+
+* Argo CD overview
+
+![](images/swagger-editor-gitops-02.png)
+
+* Argo CD `app-of-apps` 2-services
+
+![](images/swagger-editor-gitops-03.png)
+
+* Argo CD `app-of-apps` 2-services
+
+![](images/swagger-editor-gitops-04.png)
