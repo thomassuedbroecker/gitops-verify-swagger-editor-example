@@ -101,7 +101,18 @@ Options:
 
 * Simpified overview of the architecture
 
-![](images/swagger-editor-gitops-05.png)
+  * Actors:
+
+    * Customer
+    * Architect
+    * Module developer
+
+  * Usage:
+
+    * Usage of the automation
+    * Building a module
+
+    ![](images/swagger-editor-gitops-05.png)
 
 #### Step 1: Configure a `BOM` for the entire infrastructure and application
 
