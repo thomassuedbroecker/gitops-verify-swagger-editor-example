@@ -95,7 +95,13 @@ Options:
   * Which automation (bash scripts) does it use and what is realized in that automations?
   * Do we need to know some on special terraform functionaly used?
 
-### f. Setup the module on an OpenShift cluster
+
+
+### f. Steps to setup the swagger module on an OpenShift cluster
+
+* Simpified overview of the architecture
+
+![](images/swagger-editor-gitops-05.png)
 
 #### Step 1: Configure a `BOM` for the entire infrastructure and application
 
