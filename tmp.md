@@ -1,0 +1,5 @@
+
+| Objective | Related productivity task  | Public GitHub repository with documentation |
+| --- | --- | --- |
+| The objective is to understand how to build new modules for the [`Technology Zone Accelerator Toolkit`](https://modules.cloudnativetoolkit.dev/) based on the implementation of the [terraform-gitops-swagger-editor](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor) module. | [Verify swagger-editor for techzone-automation](https://github.ibm.com/isv-assets/productivity/issues/12) | https://github.com/thomassuedbroecker/gitops-verify-swagger-editor-example |
+| The objective is to understand how to build new modules for the [`Technology Zone Accelerator Toolkit`](https://modules.cloudnativetoolkit.dev/). Therefor we create a module which will deploy the guestbook application. | [Create an own techzone-automation module based on the learning of the swagger-editor module](https://github.ibm.com/isv-assets/productivity/issues/13) | https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module |
