@@ -12,9 +12,14 @@ In this project we inspect the implementation of following module:
 
 > The current project is related to the inspection of the project [gitops-create-software-everywhere-module](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module).
 
-# Understanding the `swagger-editor` module
+# Understanding the `swagger-editor` gitops module
 
-### a. Tools used by the internal module bash automation
+* Tools used by the internal module bash automation
+* Verify the input and output for the swagger-editor module
+* How is the implementation of the swagger-editor module organized?
+* Simpified overview how to develop and use a custom `GitOps module`
+
+### a. Tools used by the internal gitops module bash automation
 
   * [IBM Cloud Garage CLI](https://github.com/cloud-native-toolkit/ibm-garage-cloud-cli)
     * That tool support CI/CD in a Kubernetes environment using Tekton and Argo CD projects configured with helm. ([Example blog post](https://suedbroecker.net/2021/03/24/start-with-cicd-using-the-cloud-native-toolkit/)) 
@@ -28,7 +33,7 @@ Populates the gitops repo with the provided module contents and configures the
 ArgoCD application
 ```
 
-### b. Verify the input and output for the swagger-editor module?
+### b. Verify the input and output for the swagger-editor gitops module
 
 * Input
 
@@ -69,7 +74,7 @@ ArgoCD application
 
   There is also a template github project to implement a "gitops" module you can find [here](https://github.com/cloud-native-toolkit/template-terraform-gitops).
 
-### Simpified overview how to develop and use a custom `GitOps module`
+### d. Simpified overview how to develop and use a custom `GitOps module`
 
 * Personas
 
@@ -220,7 +225,7 @@ spec:
 
 #### Step 2: Follow the steps written in [lab 3 operate](https://operate.cloudnativetoolkit.dev/getting-started/lab3/) just with the change `BOM` to setup the environment
 
-The helper automation scripts are already configured and available in the current repository.
+The helper automation scripts are already configured in the [current repository in the example folder](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module/tree/main/example).
 
 Interactive output:
 
@@ -268,7 +273,7 @@ Provide a value for 'resource_group_name':
 > default
 ```
 
-### Step 3: Verify created resources
+### Step 4: Verify if the automation was successful
 
 ```sh
 module.argocd-bootstrap.module.openshift_cicd.module.pipelines.data.external.tekton_ready: Reading...
@@ -287,6 +292,8 @@ module.argocd-bootstrap.module.openshift_cicd.module.pipelines.data.external.tek
 
 Apply complete! Resources: 103 added, 0 changed, 0 destroyed.
 ```
+
+### Step 5: Verify created resources
 
 * GitHub project
 
