@@ -71,33 +71,51 @@ ArgoCD application
 
 ### Simpified overview how to develop and use a custom module
 
-* Module Developer
+* Personas
 
-  Develops a new module to provide an automated setup for an application or infrastructure component.
+  * Module Developer
 
-  His Tasks:
+    Develops a new module to provide an automated setup for an application or infrastructure component.
 
-  a. Starting point:
+    His Tasks:
 
-    * Start with a github project based on the module template
+    a. Starting point:
 
-  b. Here we need to create:
+      * Start with a github project based on the module template
 
-    * Module implementation
-    * Register the module to a catalog
+    b. Here we need to create:
 
-* Architect
+      * Module implementation
+      * Register the module to a catalog
 
-  Uses existing `modules` provided by maybe various `catalogs` to define in a `BOM` file his application and infrastructure outline he want to setup automated. He knows exactly the target architecture he want to create by an terraform automation.
+  * Architect
+
+    Uses existing `modules` provided by maybe various `catalogs` to define in a `BOM` file his application and infrastructure outline he want to setup automated. He knows exactly the target architecture he want to create by an terraform automation.
   
-  His Tasks:
+    His Tasks:
 
-  * He defines a `BOM`
-  * He uses `iascabel` to create the `terraform` automation
+    * He defines a `BOM`
+    * He uses `iascabel` to create the `terraform` automation
 
-* Customer
+  * Customer
 
-  Only uses` existing predefined BOMs` to create a predefined environment architecture which applies to his needs.
+    Only uses` existing predefined BOMs` to create a predefined environment architecture which applies to his needs.
+
+* Bottum up sequence to use a custom module
+
+  1. `Module` is `developed` and referenced by a catalog
+  2. The `module` will be used in `BOM` file
+  3. The `iascable tool` will create the `terraform` output using the input from `BOM` files and `referenced catalogs`
+  4. In our case our `BOM` will create following environment by terraform code:
+
+      * `VPC`
+      * `OpenShift`
+      * `Argo CD`
+      * `github repository` with following content
+        * `Argo CD` configuration
+          * `GitOps bootstrap` configuration for `Argo CD`
+          * The `Argo CD` application configuration to deploy the `Helm` chart
+        * `Helm` chart which will deploy the `swagger-editor` application 
 
 * This a example simplified architecture diagram which show the dependencies
 
