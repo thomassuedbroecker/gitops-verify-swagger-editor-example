@@ -70,9 +70,7 @@ ArgoCD application
 
 ### c. How is the implementation of the swagger-editor module organized?
 
-  You can find details of the implementation of gitops modules [here](https://modules.cloudnativetoolkit.dev/#/how-to/gitops).
-
-  There is also a template github project to implement a "gitops" module you can find [here](https://github.com/cloud-native-toolkit/template-terraform-gitops).
+  You can find details of the implementation of gitops modules [here](https://modules.cloudnativetoolkit.dev/#/how-to/gitops). There is also a template github project to implement a "gitops" module you can find [here](https://github.com/cloud-native-toolkit/template-terraform-gitops).
 
 ### d. Simpified overview how to develop and use a custom `GitOps module`
 
