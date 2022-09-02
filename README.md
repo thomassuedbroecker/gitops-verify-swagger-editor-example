@@ -69,7 +69,7 @@ ArgoCD application
 
   There is also a template github project to implement a "gitops" module you can find [here](https://github.com/cloud-native-toolkit/template-terraform-gitops).
 
-### Simpified overview how to develop and use a custom module
+### Simpified overview how to develop and use a custom `GitOps module`
 
 * Personas
 
@@ -103,9 +103,10 @@ ArgoCD application
 
 * Bottum up sequence to use a custom module
 
-  1. `Module` is `developed` and referenced by a catalog
+  1. `GitOps Module` is `developed` and referenced by a catalog
   2. The `module` will be used in `BOM` file
   3. The `iascable tool` will create the `terraform` output using the input from `BOM` files and `referenced catalogs`
+      * Inside the automation the `IGC tool` is used to create a outline for the custom `Module`
   4. In our case our `BOM` will create following environment by terraform code:
 
       * `VPC`
