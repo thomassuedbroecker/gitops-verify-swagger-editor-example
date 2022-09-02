@@ -111,7 +111,7 @@ ArgoCD application
   1. `GitOps Module` is `developed` and referenced by a catalog
   2. The `module` will be used in `BOM` file
   3. The `iascable tool` will create the `terraform` output using the input from `BOM` files and `referenced catalogs`
-      * Inside the automation the `IGC tool` is used to create a outline for the custom `Module`
+      * Inside the automation the `IGC tool` is used to creates the outline the Argo CD which fits into the used bootstrap `GitOps configuration`
   4. In our case our `BOM` will create following environment by terraform code:
 
       * `VPC`
@@ -124,6 +124,11 @@ ArgoCD application
         * `Helm` chart which will deploy the `swagger-editor` application 
 
 * This a example simplified architecture diagram which show the dependencies
+
+  * `Yellow`: Related to `GitOps`
+  * `Gray`: Tools information 
+  * `Blue`: IBM Cloud resources and swagger example files and resources on OpenShift
+  * `Red`: OpenShift 
 
   ![](images/swagger-editor-gitops-05.png)
 
