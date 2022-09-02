@@ -69,17 +69,41 @@ ArgoCD application
 
   There is also a template github project to implement a "gitops" module you can find [here](https://github.com/cloud-native-toolkit/template-terraform-gitops).
 
+### Simpified overview how to develop and use a custom module
+
+* Module Developer
+
+  Develops a new module to provide an automated setup for an application or infrastructure component.
+
+  His Tasks:
+
+  a. Starting point:
+
+    * Start with a github project based on the module template
+
+  b. Here we need to create:
+
+    * Module implementation
+    * Register the module to a catalog
+
+* Architect
+
+  Uses existing `modules` provided by maybe various `catalogs` to define in a `BOM` file his application and infrastructure outline he want to setup automated. He knows exactly the target architecture he want to create by an terraform automation.
+  
+  His Tasks:
+
+  * He defines a `BOM`
+  * He uses `iascabel` to create the `terraform` automation
+
+* Customer
+
+  Only uses` existing predefined BOMs` to create a predefined environment architecture which applies to his needs.
+
+* This a example simplified architecture diagram which show the dependencies
+
+  ![](images/swagger-editor-gitops-05.png)
+
 ### f. Steps to setup the `swagger-editor` module on an OpenShift cluster
-
-* Simpified overview of the architecture
-
-  * Actors:
-
-    * Customer
-    * Architect
-    * Module developer
-
-    ![](images/swagger-editor-gitops-05.png)
 
 #### Step 1: Configure a `BOM` for the entire infrastructure and application
 
