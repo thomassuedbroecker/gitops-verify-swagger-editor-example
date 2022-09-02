@@ -12,11 +12,9 @@ In this project we inspect the implementation of following module:
 
 > The current project is related to the inspection of the project [gitops-create-software-everywhere-module](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module).
 
-# Understanding the module
+# Understanding the `swagger-editor` module
 
-## 1. [gitops-create-software-everywhere-module](https://github.com/thomassuedbroecker/gitops-create-software-everywhere-module)
-
-### a. Tools used by the module
+### a. Tools used by the internal module bash automation
 
   * [IBM Cloud Garage CLI](https://github.com/cloud-native-toolkit/ibm-garage-cloud-cli)
     * That tool support CI/CD in a Kubernetes environment using Tekton and Argo CD projects configured with helm. ([Example blog post](https://suedbroecker.net/2021/03/24/start-with-cicd-using-the-cloud-native-toolkit/)) 
@@ -28,76 +26,50 @@ igc gitops-module [name] [contentDir]
 
 Populates the gitops repo with the provided module contents and configures the
 ArgoCD application
-
-Positionals:
-  name  The name of the module that will be added to GitOps             [string]
-
-Options:
-      --version                Show version number                     [boolean]
-      --help                   Show help                               [boolean]
-  -c, --contentDir             The directory where the payload content has been
-                               placed. If not provided defaults to current
-                               working directory.                       [string]
-  -n, --namespace              Namespace where the secret should be created
-                                                             [string] [required]
-  -l, --layer                  The gitops layer where the configuration will be
-                               deployed (infrastructure, services, applications)
-                         [choices: "infrastructure", "services", "applications"]
-      --gitopsConfigFile       Name of yaml or json file that contains the
-                               gitops config values                     [string]
-      --bootstrapRepoUrl       Url of the bootstrap repo that contains the
-                               gitops config yaml                       [string]
-      --gitopsCredentialsFile  Name of yaml or json file that contains the
-                               gitops credentials                       [string]
-      --token                  Git personal access token to access gitops repo
-                                                                        [string]
-      --applicationPath        The path within the payload directory structure
-                               where the payload config should be placed. If not
-                               provided will default to `name`          [string]
-      --branch                 The branch where the payload has been deployed
-      --type                   The type of component added to the GitOps repo.
-                   [choices: "base", "operators", "instances"] [default: "base"]
-      --serverName             The name of the cluster. If not provided will use
-                               `default`
-      --valueFiles             Comma-separated list of value files that should
-                               be applied to the Argo CD application if using a
-                               helm chart
-      --lock                   Git repo locking style
-       [choices: "optimistic", "pessimistic", "branch", "o", "p", "b"] [default:
-                                                                       "branch"]
-      --autoMerge              Flag indicating that the branch/PR should be
-                               automatically merged. Only applies if lock
-                               strategy is branch      [boolean] [default: true]
-      --rateLimit              Flag indicating that the calls to the git api
-                               should be rate limited.[boolean] [default: false]
-      --tmpDir                 The temp directory where the gitops repo should
-                               be checked out
-                                        [string] [default: "/tmp/gitops-module"]
-      --debug                  Turn on debug logging                   [boolean]
 ```
 
-### b. Verify the input for the swagger-editor module?
+### b. Verify the input and output for the swagger-editor module?
 
-  * OpenShift
-  * VPC
-  * Argo CD configuation
+* Input
 
-### c. Can the swagger-editor module be instantiated reusing the existing environment/infrasture already created?
+What do we need as input to deploy the swagger editor application?
+That can be provide by other module or we will provide it.
+The following variable are the input for the `swagger-editor`.
 
-  * If yes, what are the needed entries in a BOM?
-  * If no, what are the needed entries in a BOM?
+We find detailed information in the [variables](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/variables.tf) file.
 
-### d. How is the implementation of the swagger-editor module organized?
+These are the names of the variables for details please visit [variables.tf](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/variables.tf) file in the repository.
 
-  * Which input does it has?
-    * Parameters?
-  * What does it create?
-  * Which automation (bash scripts) does it use and what is realized in that automations?
-  * Do we need to know some on special terraform functionaly used?
+  * variable "gitops_config" - "Config information regarding the gitops repo structure (app of apps)"
+  * variable "git_credentials" - "The credentials for the gitops repo(s)"
+  * variable "namespace" - "The namespace where the application should be deployed"
+  * variable "kubeseal_cert" - "The certificate/public key used to encrypt the sealed secrets"
+  * variable "server_name" - "The name of the server (Cluster masternode URL)"
+  * variable "enable_sso" - "Flag indicating if oauth should be applied (only available for OpenShift)"
+  * variable "tls_secret_name" - "The name of the secret containing the tls certificate values"
+  * variable "cluster_ingress_hostname" - "Ingress hostname of the cluster."
+  * variable "cluster_type" - "The cluster type (openshift or kubernetes)"
 
+* Output
 
+This is the output which can be consumed by other modules.
 
-### f. Steps to setup the swagger module on an OpenShift cluster
+These are the names of the outputs for details please visit [output.tf](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/outputs.tf) file in the repository.
+
+  * output "name" - "The name of the module"
+  * output "branch" - "The branch where the module config has been placed"
+  * output "namespace" - "The namespace where the module will be deployed"
+  * output "server_name" -  "The server where the module will be deployed"
+  * output "layer" - "The layer where the module is deployed"
+  * output "type" - description = "The type of module where the module is deployed"
+
+### c. How is the implementation of the swagger-editor module organized?
+
+  You can find details of the implementation of gitops modules [here](https://modules.cloudnativetoolkit.dev/#/how-to/gitops).
+
+  There is also a template github project to implement a "gitops" module you can find [here](https://github.com/cloud-native-toolkit/template-terraform-gitops).
+
+### f. Steps to setup the `swagger-editor` module on an OpenShift cluster
 
 * Simpified overview of the architecture
 
@@ -106,11 +78,6 @@ Options:
     * Customer
     * Architect
     * Module developer
-
-  * Usage:
-
-    * Usage of the automation
-    * Building a module
 
     ![](images/swagger-editor-gitops-05.png)
 
