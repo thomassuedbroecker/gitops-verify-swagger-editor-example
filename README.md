@@ -32,36 +32,36 @@ ArgoCD application
 
 * Input
 
-What do we need as input to deploy the swagger editor application?
-That can be provide by other module or we will provide it.
-The following variable are the input for the `swagger-editor`.
+  What do we need as input to deploy the swagger editor application?
+  That can be provide by other module or we will provide it.
+  The following variable are the input for the `swagger-editor`.
 
-We find detailed information in the [variables](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/variables.tf) file.
+  We find detailed information in the [variables](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/variables.tf) file.
 
-These are the names of the variables for details please visit [variables.tf](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/variables.tf) file in the repository.
+  These are the names of the variables for details please visit [variables.tf](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/variables.tf) file in the repository.
 
-  * variable "gitops_config" - "Config information regarding the gitops repo structure (app of apps)"
-  * variable "git_credentials" - "The credentials for the gitops repo(s)"
-  * variable "namespace" - "The namespace where the application should be deployed"
-  * variable "kubeseal_cert" - "The certificate/public key used to encrypt the sealed secrets"
-  * variable "server_name" - "The name of the server (Cluster masternode URL)"
-  * variable "enable_sso" - "Flag indicating if oauth should be applied (only available for OpenShift)"
-  * variable "tls_secret_name" - "The name of the secret containing the tls certificate values"
-  * variable "cluster_ingress_hostname" - "Ingress hostname of the cluster."
-  * variable "cluster_type" - "The cluster type (openshift or kubernetes)"
+    * variable "gitops_config" - "Config information regarding the gitops repo structure (app of apps)"
+    * variable "git_credentials" - "The credentials for the gitops repo(s)"
+    * variable "namespace" - "The namespace where the application should be deployed"
+    * variable "kubeseal_cert" - "The certificate/public key used to encrypt the sealed secrets"
+    * variable "server_name" - "The name of the server (Cluster masternode URL)"
+    * variable "enable_sso" - "Flag indicating if oauth should be applied (only available for OpenShift)"
+    * variable "tls_secret_name" - "The name of the secret containing the tls certificate values"
+    * variable "cluster_ingress_hostname" - "Ingress hostname of the cluster."
+    * variable "cluster_type" - "The cluster type (openshift or kubernetes)"
 
 * Output
 
-This is the output which can be consumed by other modules.
+  This is the output which can be consumed by other modules.
 
-These are the names of the outputs for details please visit [output.tf](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/outputs.tf) file in the repository.
+  These are the names of the outputs for details please visit [output.tf](https://github.com/cloud-native-toolkit/terraform-gitops-swagger-editor/blob/main/outputs.tf) file in the repository.
 
-  * output "name" - "The name of the module"
-  * output "branch" - "The branch where the module config has been placed"
-  * output "namespace" - "The namespace where the module will be deployed"
-  * output "server_name" -  "The server where the module will be deployed"
-  * output "layer" - "The layer where the module is deployed"
-  * output "type" - description = "The type of module where the module is deployed"
+    * output "name" - "The name of the module"
+    * output "branch" - "The branch where the module config has been placed"
+    * output "namespace" - "The namespace where the module will be deployed"
+    * output "server_name" -  "The server where the module will be deployed"
+    * output "layer" - "The layer where the module is deployed"
+    * output "type" - description = "The type of module where the module is deployed"
 
 ### c. How is the implementation of the swagger-editor module organized?
 
