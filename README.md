@@ -84,7 +84,7 @@ ArgoCD application
 
     a. Starting point:
 
-      * Start with a github project based on the module template
+      * Start with a GitHub project based on the module template
 
     b. Here we need to create:
 
@@ -93,7 +93,7 @@ ArgoCD application
 
   * Architect
 
-    Uses existing `modules` provided by maybe various `catalogs` to define in a `BOM` file his application and infrastructure outline he want to setup automated. He knows exactly the target architecture he want to create by an terraform automation.
+    Uses existing `modules` provided by maybe various `catalogs` to define in a `BOM` file his application and infrastructure outline he want to setup automated. He knows exactly the target architecture he want to create with a terraform automation.
   
     His Tasks:
 
@@ -109,7 +109,7 @@ ArgoCD application
   1. `GitOps Module` is `developed` and referenced by a catalog
   2. The `module` will be used in `BOM` file
   3. The `iascable tool` will create the `terraform` output using the input from `BOM` files and `referenced catalogs`
-      * Inside the automation the `IGC tool` is used to creates the outline the Argo CD which fits into the used bootstrap `GitOps configuration`
+      * Inside the automation the `IGC tool` is used to create the outline the Argo CD which fits into the used bootstrap `GitOps configuration`
   4. In our case our `BOM` will create following environment by terraform code:
 
       * `VPC`
@@ -124,7 +124,7 @@ ArgoCD application
 * This a example simplified architecture diagram which show the dependencies
 
   * `Yellow`: Related to `GitOps`
-  * `Gray`: Tools information 
+  * `GrGreyay`: Tools information 
   * `Blue`: IBM Cloud resources and swagger example files and resources on OpenShift
   * `Red`: OpenShift 
 
